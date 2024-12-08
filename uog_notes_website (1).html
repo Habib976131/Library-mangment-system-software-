@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UOG Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .search-bar {
+            margin: 20px 0;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .note {
+            background-color: #e2e2e2;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .login-form, .register-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-form input, .register-form input {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to UOG Notes</h1>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#notes">Notes</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#login">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="home" class="container">
+    <h2>Home</h2>
+    <p>Welcome to UOG Notes, your one-stop platform for IT student notes, guides, and tutorials.</p>
+</section>
+
+<section id="about" class="container">
+    <h2>About</h2>
+    <p>UOG Notes is designed to help IT students access notes, guides, and tutorials easily in one place.</p>
+</section>
+
+<section id="notes" class="container">
+    <h2>Notes</h2>
+    <div class="search-bar">
+        <input type="text" id="search" placeholder="Search for notes...">
+    </div>
+    <div class="note">Note 1: Introduction to Programming</div>
+    <div class="note">Note 2: Data Structures and Algorithms</div>
+    <div class="note">Note 3: Database Systems</div>
+</section>
+
+<section id="contact" class="container">
+    <h2>Contact Us</h2>
+    <p>If you have any questions, feel free to reach out!</p>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="4" required></textarea>
+        <button class="btn" type="submit">Send Message</button>
+    </form>
+</section>
+
+<section id="login" class="container">
+    <h2>Login</h2>
+    <form class="login-form">
+        <input type="text" placeholder="Roll Number" required>
+        <input type="password" placeholder="Password" required>
+        <button class="btn" type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="#register">Register here</a></p>
+</section>
+
+<section id="register" class="container">
+    <h2>Register</h2>
+    <form class="register-form">
+        <input type="text" placeholder="Roll Number" required>
+        <input type="password" placeholder="Set Password" required>
+        <button class="btn" type="submit">Register</button>
+    </form>
+</section>
+
+<script>
+    // Simple search functionality
+    document.getElementById('search').addEventListener('input', function(e) {
+        const term = e.target.value.toLowerCase();
+        const notes = document.querySelectorAll('.note');
+        
+        notes.forEach(note => {
+            const text = note.textContent.toLowerCase();
+            note.style.display = text.includes(term) ? 'block' : 'none';
+        });
+    });
+
+    // Dummy login functionality (for demonstration purposes only)
+    const loginForm = document.querySelector('.login-form');
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Login successful (dummy functionality)');
+    });
+
+    // Dummy register functionality (for demonstration purposes only)
+    const registerForm = document.querySelector('.register-form');
+    registerForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Registration successful (dummy functionality)');
+    });
+</script>
+
+</body>
+</html>
